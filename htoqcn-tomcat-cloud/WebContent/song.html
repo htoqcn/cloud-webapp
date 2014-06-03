@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>我的歌曲</title>
+		<script type="text/javascript">
+var xmlhttp;
+if (window.XMLHttpRequest) { // code for IE7+, Firefox, Chrome, Opera, Safari
+	xmlhttp = new XMLHttpRequest();
+} else { // code for IE6, IE5
+	xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+}
+xmlhttp.onreadystatechange = function () {
+	if (xmlhttp.readyState == 4) {
+		if (xmlhttp.status == 200) {
+			eval(xmlhttp.responseText);
+		} else if (xmlhttp.status > 0) {
+			alert('Error: ' + xmlhttp.readyState + ', ' + xmlhttp.status);
+		}
+	}
+}
+function addSong(mainForm) {
+	xmlhttp.open("POST", "song-backend.jsp", true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("tn=" + mainForm['the-name'].value);
+}
+function listSong() {
+	xmlhttp.open("POST", "song-backend.jsp", true);
+	xmlhttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+	xmlhttp.send("m=1");
+}
+		</script>
+	</head>
+	<body onLoad="listSong()">
+		<form onsubmit="addSong(this); return false;">
+			<input id="the-name" type="text" name="the-name"> <button onclick="addSong(this.form)">添加</button><br>
+			<div id="output">
+			</div>
+		</form>
+	</body>
+</html>
