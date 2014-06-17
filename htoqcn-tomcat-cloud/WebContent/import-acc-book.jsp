@@ -9,7 +9,7 @@
 %>
 		Import Steps:<br>
 		1) Access http://j.life-py.appspot.com/bill-month-query and copy to this textarea<br>
-		2) /import-account-book-ext.jsp
+		2) /import-account-book-ext.jsp<br>
 		3) Check MainID of ACCOUNT_BOOK_EXT
 		<form method="post">
 			<table>
