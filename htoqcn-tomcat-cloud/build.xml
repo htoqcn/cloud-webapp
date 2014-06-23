@@ -1,3 +1,4 @@
+<!DOCTYPE PROJECT>
 <project name="CopyAll" default="all" basedir=".">
     <target name="all">
         <copy todir="D:/htoqcn/tomcat-cloud/webapps/ROOT">
